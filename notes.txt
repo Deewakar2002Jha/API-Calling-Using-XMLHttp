@@ -1,0 +1,36 @@
+The Most IMport Topic of webDevelopment
+
+ 1. Client -----> JSON ---->Server--->Database
+ 2. Client <-----JSON-----Server
+
+New Technology
+JSON = Javascript Object Notation
+
+JSON = Array OF Object
+
+
+API(Application programing InterFace)
+Request Method
+    1. GET
+    2. POST
+
+API Tools (TO SEE DATA)
+    1. POSTMAN(API Testing Tool)
+
+Old Technology
+XML = Extensible Markup Language
+XMLHttpREquest CLass
+
+API USing in This Document
+
+website Name:- JSON placeholder
+
+Resources
+JSONPlaceholder comes with a set of 6 common resources:
+
+/posts=https://jsonplaceholder.typicode.com/posts
+/photos=https://jsonplaceholder.typicode.com/photos
+
+//InterView Question 
+1.how to convert json string into json Object
+ANS:- JSON String ------> JSON.parse() -----> JSON Object
