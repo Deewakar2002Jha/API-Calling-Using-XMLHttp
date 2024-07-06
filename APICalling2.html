@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating API with XMLHttpRequest Using REST API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Topic:-Creating API with XMLHttpRequest Using JAVASCRIPT and REST API</h1>
+    <h3 style="color:red";>Check API is working by reload page and open console page in brower</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Company</th>
+            <th scope="col">Email</th>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Username</th>
+            <th scope="col">Website</th>
+          </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+      </table>
+    <script>
+        //let create our own class i.e user define class
+
+        class MyClass{//Pascal Case
+                //1.Property
+
+
+                //2.Contructor
+
+
+                //3. Method
+                sum(a,b){//a and b formal argument
+                    return a+b;
+                }
+        }
+
+        //2. Let create a object from the MyClass
+
+
+        //Let Object = new ClassName();
+        let myobj = new MyClass();
+
+        //How you can access the method?
+        let result = myobj.sum(10,20);
+
+        console.log('result',result);
+    </script>
+    <script>
+        //Function Callback
+
+        //1 function defination
+        function getUserInfo(object,Callbackfn){//object and callbackfn is formal argument
+
+            
+
+
+            //1 Lets create xhr object from XMLHttpRequest Class
+
+            //Let object = new ClassName();
+
+            let xhr = new XMLHttpRequest();//XMLHttpRequest is perbuild class
+
+
+            //Methods in Javascript
+            xhr.open(object.method,object.url);
+            xhr.send();
+            var te = '';
+
+            //EventHandler
+            xhr.onload = function(){
+                console.log(xhr);
+                //console.log(xhr.responseText);
+                Callbackfn(xhr.responseText);
+
+                
+            }
+
+        
+        }
+
+
+        //2.Function Calling
+        getUserInfo({url:'https://jsonplaceholder.typicode.com/users',method:"GET"},function(response){
+            console.log(response);
+            console.log(typeof response);
+            response = JSON.parse(response);
+
+            console.log(response);
+            console.log(typeof response);
+
+            var tbody = document.querySelector('.table > tbody');
+
+            response.forEach((currentElement,index,arr) =>{
+                console.log(currentElement);
+
+                var tr = document.createElement('tr');
+                    var td1 = document.createElement('td');
+                    td1.innerHTML = currentElement.company;
+                    var td2 = document.createElement('td');
+                    td2.innerHTML = currentElement.email;
+                    var td3 = document.createElement('td');
+                    td3.innerHTML = currentElement.id;
+                    var td4 = document.createElement('td');
+                    td4.innerHTML = currentElement.name;
+                    var td5 = document.createElement('td');
+                    td5.innerHTML = currentElement.phone;
+                    var td6 = document.createElement('td');
+                    td6.innerHTML = currentElement.username;
+                    var td7 = document.createElement('td');
+                    td7.innerHTML = currentElement.website;
+
+
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    tr.appendChild(td4);
+                    tr.appendChild(td5);
+                    tr.appendChild(td6);
+                    tr.appendChild(td7);
+
+                    tbody.appendChild(tr);
+
+                console.log(currentElement.name);
+                
+
+            });
+        });//actual argument
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
