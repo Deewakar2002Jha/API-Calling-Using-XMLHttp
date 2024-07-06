@@ -9,6 +9,11 @@
 <body>
     <h1>Topic:-Creating API with XMLHttpRequest Using JAVASCRIPT and REST API</h1>
     <h3 style="color:red";>Check API is working by reload page and open console page in brower</h3>
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border" style="width: 5rem; height: 5rem;" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
     <table class="table">
         <thead>
           <tr>
@@ -88,6 +93,7 @@
 
         //2.Function Calling
         getUserInfo({url:'https://jsonplaceholder.typicode.com/users',method:"GET"},function(response){
+            document.querySelector('.spinner-border').remove();
             console.log(response);
             console.log(typeof response);
             response = JSON.parse(response);
@@ -98,11 +104,13 @@
             var tbody = document.querySelector('.table > tbody');
 
             response.forEach((currentElement,index,arr) =>{
+                
+
                 console.log(currentElement);
 
                 var tr = document.createElement('tr');
                     var td1 = document.createElement('td');
-                    td1.innerHTML = currentElement.company;
+                    td1.innerHTML = currentElement.company.bs+currentElement.company.catchPhrase+currentElement.company.name;
                     var td2 = document.createElement('td');
                     td2.innerHTML = currentElement.email;
                     var td3 = document.createElement('td');
